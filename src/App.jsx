@@ -1,9 +1,11 @@
-import FlagCard from './Components/FlagCard'
+import FlagCards from './Components/FlagCards'
+import HeaderBar from './Components/HeaderBar'
 
 function App() {
   return (
     <>
-      <FlagCard/>
+      <HeaderBar pageHeading={'Where in the World?'}/>
+      <FlagCards/>
     </>
   )
 }
