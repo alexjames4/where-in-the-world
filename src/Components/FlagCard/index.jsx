@@ -1,8 +1,6 @@
 const FlagCard = () => {
     return (
-        <div>
-            flag
-        </div>
+        <button type="button" class="btn">Hiya</button>
     )
 }
 
