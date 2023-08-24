@@ -1,18 +1,43 @@
+import { useEffect } from "react"
 import FlagCard from "../FlagCard"
+import { useState } from "react"
 
 
 const FlagCards = () => {
+    const [countrys, setCountrys] = useState()
+
+    const getCountrysData = async () => {
+        let response = await fetch ('https://restcountries.com/v3.1/all')
+        let countrysData = await response.json()
+        setCountrys(countrysData)
+    } 
+    
+    useEffect(() => {
+        getCountrysData()
+    }, [])
+
+    const fillFlagCardWithData = () => {
+        return countrys.map(country => {
+            return (
+                <FlagCard
+                key={country.name.common}
+                image={country.flags.png}
+                alt={country.flags.alt}
+                countryName={country.name.common}
+                population={country.population}
+                region={country.region}
+                capital={country.capital}
+                />
+            )
+        })
+    }
+
     return (
         <div className="container">
-            <div className="row">
-                <FlagCard
-                image="https://flagcdn.com/w320/fr.png"
-                alt="The flag of France is composed of three equal vertical bands of blue, white and red." 
-                name="France" 
-                population="1000000" 
-                region="Europe" 
-                capital="Paris"
-                />
+            <div className="row offset-2">
+                {
+                    countrys ? fillFlagCardWithData() : 'loading'
+                }
             </div>
         </div>
     )

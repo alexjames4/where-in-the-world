@@ -1,9 +1,11 @@
-const FlagCard = ({image, alt, name, population, region, capital}) => {
+import './FlagCard.css'
+
+const FlagCard = ({image, alt, countryName, population, region, capital}) => {
     return (
-        <div className="card col-4">
-            <img src={image} className="card-img-top" alt={alt}/>
+        <div className="card col-3 m-2">
+            <img src={image} className="card-img-top flag-img" alt={alt}/>
             <div className="card-body">
-                <h5 className="card-title">{name}</h5>
+                <h5 className="card-title">{countryName}</h5>
             </div> 
             <div className="card-body">   
                 <ul className="list-group list-group-flush">
