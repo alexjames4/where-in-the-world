@@ -15,8 +15,8 @@ const FlagCards = ({searchData}) => {
     const getSearchData = async () => {
         let response = await fetch (`https://restcountries.com/v3.1/name/${searchData}`)
         let countryData = await response.json()
-        if (countryData.message == "Not Found") {
-            return <div>Search not found</div>
+        if (!searchData || countryData.message == "Not Found") {
+
         } else {
             setCountrys(countryData)
         }
