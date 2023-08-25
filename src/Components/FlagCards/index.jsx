@@ -3,7 +3,7 @@ import FlagCard from "../FlagCard"
 import { useState } from "react"
 
 
-const FlagCards = () => {
+const FlagCards = ({searchData}) => {
     const [countrys, setCountrys] = useState()
 
     const getCountrysData = async () => {
@@ -11,10 +11,24 @@ const FlagCards = () => {
         let countrysData = await response.json()
         setCountrys(countrysData)
     } 
+
+    const getSearchData = async () => {
+        let response = await fetch (`https://restcountries.com/v3.1/name/${searchData}`)
+        let countryData = await response.json()
+        if (countryData.message == "Not Found") {
+            return <div>Search not found</div>
+        } else {
+            setCountrys(countryData)
+        }
+    }
     
     useEffect(() => {
-        getCountrysData()
-    }, [])
+        if (searchData == undefined) {
+            getCountrysData()
+        } else {
+            getSearchData()
+        }
+    }, [searchData])
 
     const fillFlagCardWithData = () => {
         return countrys.map(country => {
