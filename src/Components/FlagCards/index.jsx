@@ -33,7 +33,7 @@ const FlagCards = () => {
     }
 
     return (
-        <div className="container">
+        <div className="container pt-1">
             <div className="row offset-2">
                 {
                     countrys ? fillFlagCardWithData() : 'loading'
