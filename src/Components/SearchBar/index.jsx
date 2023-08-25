@@ -8,8 +8,18 @@ const SearchBar = () => {
         setSearchTerm(e.target.value)
     }
 
+    const getSearchData = async () => {
+        let response = await fetch (`https://restcountries.com/v3.1/name/${searchTerm}`)
+        let searchData = await response.json()
+        console.log(searchData)
+    }
+
     useEffect(() => {
         console.log(searchTerm)
+        if (!searchTerm) {
+        } else {
+            getSearchData()
+        }
     }, [searchTerm])
 
     return (
