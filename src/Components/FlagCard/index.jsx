@@ -2,7 +2,7 @@ import './FlagCard.css'
 
 const FlagCard = ({image, alt, countryName, population, region, capital}) => {
     return (
-        <div className="card col-3 m-2">
+        <div className="card col-8 m-1 col-md-4 col-lg-3">
             <span className="img-span">
                 <img src={image} className="card-img-top flag-img mt-2" alt={alt}/>
             </span>
