@@ -48,7 +48,7 @@ const FlagCards = ({searchData}) => {
 
     return (
         <div className="container pt-1">
-            <div className="row offset-2">
+            <div className="row d-flex justify-content-center">
                 {
                     countrys ? fillFlagCardWithData() : 'loading'
                 }
