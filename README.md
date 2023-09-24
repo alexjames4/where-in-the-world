@@ -1,5 +1,5 @@
 # Where in the world
 
-This is a small project using React and Vite to create a application that interacts with https://restcountries.com/ API to display a range of countries and some facts about them.
+In this project I have combined my JS, HTML and CSS knowledge to create a application that interacts with https://restcountries.com/ API to display a range of countries and some facts about them.
 
-I have added the ability to search for a specific country by name and for the results to update live as you type.
+I have implemented the Bootstrap Framework and also added the ability to search for a specific country by name with the results to update live as you type.
